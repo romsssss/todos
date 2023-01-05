@@ -1,0 +1,12 @@
+<h1>TODO</h1>
+
+
+<% if @tasks.empty? %>
+  <p>No tasks</p>
+<% else %>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li><%= task.title %></li>
+    <% end %>
+  </ul>
+<% end %>
