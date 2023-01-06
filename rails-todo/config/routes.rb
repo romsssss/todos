@@ -4,5 +4,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'tasks#index'
 
-  resources :tasks, only: [:index]
+  resources :tasks, only: %i[index create update destroy] do
+    member do
+      put :complete
+      put :uncomplete
+    end
+  end
 end

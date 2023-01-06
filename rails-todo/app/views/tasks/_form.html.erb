@@ -1,0 +1,16 @@
+<%= form_with(model: task, class: 'border-b-2') do |form| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <ul>
+        <% task.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="flex items-stretch flex-grow">
+    <%= form.label :title, class: "sr-only" %>
+    <%= form.text_field :title, class: "block w-full border-none focus:ring-0 focus:ring-offset-0 py-4", placeholder: t('new_task_placeholder'), autocomplete: 'off', autofocus:'autofocus' %>
+  </div>
+<% end %>

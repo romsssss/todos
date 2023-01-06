@@ -1,24 +1,30 @@
-# README
+# Rails-Todo
+A simple Todo app written with Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![Alt text](/app/assets/images/app-screenshot.png?raw=true "Application Screenshot")
 
-Things you may want to cover:
+### Installation
+Make sure a working version of Ruby (v3.0+) is installed on your system.
 
-* Ruby version
+Then, at the root of this project, install bundler with
+```bash
+gem install bundler
+```
 
-* System dependencies
+Install all dependencies with
+```bash
+bundle install
+```
 
-* Configuration
+### Run the project
+Run the following command
+```
+bin/dev
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The project is then available at http://127.0.0.1:3000
+### Run the tests
+Use one of the following commands:
+* `bin/rails test` to run all tests but integration (unit tests, controller tests, ...)
+* `bin/rails test:system` to only run integration tests
+* `bin/rails test:all` to run all the tests

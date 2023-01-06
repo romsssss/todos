@@ -30,4 +30,19 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  title: 'TODO'
+  new_task_placeholder: "What needs to be done?"
+  remaining_active_tasks:
+    zero: '0 item left'
+    one: '1  item left'
+    other: '%{count} items left'
+  filter:
+    all: 'All'
+    active: 'Active'
+    completed: 'Completed'
+  notice:
+    task_created: "Task was successfully created."
+    task_updated: "Task was successfully updated."
+    task_completed: "Task was successfully completed."
+    task_uncompleted: "Task was successfully uncompleted."
+    task_destroyed: "Task was successfully destroyed."
