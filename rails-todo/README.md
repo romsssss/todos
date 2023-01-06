@@ -1,7 +1,7 @@
 # Rails-Todo
 A simple Todo app written with Rails
 
-![Alt text](/app/assets/images/app-screenshot.png?raw=true "Application Screenshot")
+![Alt text](app/assets/images/app-screenshot.png?raw=true "Application Screenshot")
 
 ### Installation
 Make sure a working version of Ruby (v3.0+) is installed on your system.
