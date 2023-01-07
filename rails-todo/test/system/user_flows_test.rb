@@ -1,4 +1,4 @@
-require "application_system_test_case"
+require 'application_system_test_case'
 
 class UserFlowsTest < ApplicationSystemTestCase
   setup do
@@ -18,6 +18,7 @@ class UserFlowsTest < ApplicationSystemTestCase
     find('#task_title').native.send_keys(:return)
 
     assert_text 'Buy more flour'
+    assert_text '1 item left'
   end
 
   test 'complete a task' do
@@ -57,5 +58,31 @@ class UserFlowsTest < ApplicationSystemTestCase
 
     assert_text 'My task to keep'
     assert_text '1 item left'
+  end
+
+  test 'filter tasks' do
+    Task.create(title: 'Active task 1')
+    Task.create(title: 'Active task 2')
+    Task.create(title: 'Completed task 3', completed_at: 2.days.ago)
+
+    visit tasks_url
+    assert_text 'Active task 1'
+    assert_text 'Active task 2'
+    assert_text 'Completed task 3'
+
+    click_link 'Active'
+    assert_text 'Active task 1'
+    assert_text 'Active task 2'
+    assert_no_text 'Completed task 3'
+
+    click_link 'Completed'
+    assert_no_text 'Active task 1'
+    assert_no_text 'Active task 2'
+    assert_text 'Completed task 3'
+
+    click_link 'All'
+    assert_text 'Active task 1'
+    assert_text 'Active task 2'
+    assert_text 'Completed task 3'
   end
 end
