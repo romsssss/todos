@@ -2,23 +2,25 @@
   <%= t('title') %>
 </h1>
 
-<div class="bg-white shadow-2xl text-lg">
-  <%= render "form", task: @task %>
+<%= turbo_frame_tag "tasks-container" do %>
+  <div class="bg-white shadow-2xl text-lg">
+    <%= render "form", task: @task %>
 
-  <% unless @tasks.empty? && !params[:filter] %>
-    <ul id="tasks">
-      <%= render @tasks %>
-    </ul>
+    <% unless @tasks.empty? && !params[:filter] %>
+      <ul id="tasks">
+        <%= render @tasks %>
+      </ul>
 
-    <div class="flex justify-around items-center text-xs text-gray-400 py-3">
-      <div>
-        <%= t('remaining_active_tasks', count: @active_tasks_count) %>
+      <div class="flex justify-around items-center text-xs text-gray-400 py-3">
+        <div>
+          <%= t('remaining_active_tasks', count: @active_tasks_count) %>
+        </div>
+        <div>
+          <%= link_to(t('filter.all'), tasks_url(filter: 'all'), class: "#{'border' if params[:filter] == 'all' || params[:filter].blank? } hover:border rounded p-1") %>
+          <%= link_to(t('filter.active'), tasks_url(filter: 'active'), class: "#{'border' if params[:filter] == 'active'} hover:border rounded p-1") %>
+          <%= link_to(t('filter.completed'), tasks_url(filter: 'completed'), class: "#{'border' if params[:filter] == 'completed'} hover:border rounded p-1") %>
+        </div>
       </div>
-      <div>
-        <%= link_to(t('filter.all'), tasks_url(filter: 'all'), class: "#{'border' if params[:filter] == 'all' || params[:filter].blank? } hover:border rounded p-1") %>
-        <%= link_to(t('filter.active'), tasks_url(filter: 'active'), class: "#{'border' if params[:filter] == 'active'} hover:border rounded p-1") %>
-        <%= link_to(t('filter.completed'), tasks_url(filter: 'completed'), class: "#{'border' if params[:filter] == 'completed'} hover:border rounded p-1") %>
-      </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>

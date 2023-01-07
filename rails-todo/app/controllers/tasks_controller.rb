@@ -13,7 +13,6 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        # format.turbo_stream
         format.html { redirect_to tasks_url(filter_param), notice: I18n.t('notice.task_created') }
       else
         set_tasks
@@ -63,7 +62,6 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      # format.turbo_stream { render turbo_stream: turbo_stream.remove("#{helpers.dom_id(@task)}_container") }
       format.html { redirect_to tasks_url(filter_param), notice: I18n.t('notice.task_destroyed') }
     end
   end
