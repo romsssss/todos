@@ -11,6 +11,7 @@
 
   <div class="flex items-stretch flex-grow">
     <%= form.label :title, class: "sr-only" %>
-    <%= form.text_field :title, class: "block w-full border-none focus:ring-0 focus:ring-offset-0 py-4", placeholder: t('new_task_placeholder'), autocomplete: 'off', autofocus:'autofocus' %>
+    <%= form.text_field :title, required: true, placeholder: t('new_task_placeholder'), autocomplete: 'off', autofocus:'autofocus', class: "block w-full border-none focus:ring-0 focus:ring-offset-0 py-4" %>
+    <%= hidden_field_tag :filter, params[:filter] if params[:filter].present? %>
   </div>
 <% end %>

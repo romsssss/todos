@@ -13,8 +13,8 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.turbo_stream
-        format.html { redirect_to tasks_url, notice: I18n.t('notice.task_created') }
+        # format.turbo_stream
+        format.html { redirect_to tasks_url(filter_param), notice: I18n.t('notice.task_created') }
       else
         set_tasks
         format.html { render :index, status: :unprocessable_entity }
@@ -26,7 +26,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to tasks_url, notice: I18n.t('notice.task_updated') }
+        format.html { redirect_to tasks_url(filter_param), notice: I18n.t('notice.task_updated') }
       else
         set_tasks
         format.html { render :index, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class TasksController < ApplicationController
   def complete
     respond_to do |format|
       if @task.update(completed_at: Time.zone.now)
-        format.html { redirect_to tasks_url, notice: I18n.t('notice.task_completed') }
+        format.html { redirect_to tasks_url(filter_param), notice: I18n.t('notice.task_completed') }
       else
         set_tasks
         format.html { render :new, status: :unprocessable_entity }
@@ -46,11 +46,11 @@ class TasksController < ApplicationController
     end
   end
 
-  # PUT /tasks/:id/complete
+  # PUT /tasks/:id/uncomplete
   def uncomplete
     respond_to do |format|
       if @task.update(completed_at: nil)
-        format.html { redirect_to tasks_url, notice: I18n.t('notice.task_uncompleted') }
+        format.html { redirect_to tasks_url(filter_param), notice: I18n.t('notice.task_uncompleted') }
       else
         set_tasks
         format.html { render :new, status: :unprocessable_entity }
@@ -63,8 +63,8 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.remove("#{helpers.dom_id(@task)}_container") }
-      format.html { redirect_to tasks_url, notice: I18n.t('notice.task_destroyed') }
+      # format.turbo_stream { render turbo_stream: turbo_stream.remove("#{helpers.dom_id(@task)}_container") }
+      format.html { redirect_to tasks_url(filter_param), notice: I18n.t('notice.task_destroyed') }
     end
   end
 
@@ -87,6 +87,6 @@ class TasksController < ApplicationController
   end
 
   def filter_param
-    params.require(:task).permit(:title)
+    params.permit(:filter)
   end
 end
