@@ -13,6 +13,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
+        format.turbo_stream
         format.html { redirect_to tasks_url, notice: I18n.t('notice.task_created') }
       else
         set_tasks

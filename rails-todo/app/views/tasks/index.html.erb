@@ -6,7 +6,7 @@
   <%= render "form", task: @task %>
 
   <% unless @tasks.empty? && !params[:filter] %>
-    <ul>
+    <ul id="tasks">
       <%= render @tasks %>
     </ul>
 
