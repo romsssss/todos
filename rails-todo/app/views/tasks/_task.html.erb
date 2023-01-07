@@ -1,17 +1,13 @@
-<li class="flex justify-between border-b pl-3 pr-5 py-4">
+<li id="<%= "#{dom_id(task)}_container" %>" class="flex justify-between border-b pl-3 pr-5 py-4">
   <div class="flex items-center space-x-3">
-    <% if task.completed_at? %>
-      <%= form_tag(uncomplete_task_path(task), method: :put) do %>
-        <%= check_box_tag :completed_at, '1', true, onchange: "this.form.submit();", class:'w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-400 focus:ring-2 dark:bg-gray-200 dark:border-gray-300' %>
-      <% end %>
-    <% else %>
-      <%= form_tag(complete_task_path(task), method: :put) do %>
-        <%= check_box_tag :completed_at, '1', false, onchange: "this.form.submit();", class:'w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-400 focus:ring-2 dark:bg-gray-200 dark:border-gray-300' %>
-      <% end %>
+    <%= form_tag(task.completed_at? ? uncomplete_task_path(task) : complete_task_path(task) , method: :put) do %>
+      <%= check_box_tag :completed_at, '1', task.completed_at?, onchange: "this.form.submit();", class:'w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-400 focus:ring-2 dark:bg-gray-200 dark:border-gray-300' %>
     <% end %>
+
     <div class="<%= 'line-through text-gray-400' if task.completed_at? %>">
       <%= task.title %>
     </div>
   </div>
+
   <%= button_to 'X', task_path(task), method: :delete, class: "text-gray-400 destroy-task-button" %>
 </li>
