@@ -1,6 +1,5 @@
 <script setup>
-import HelloWorld from "./components/HelloWorld.vue";
-import TheWelcome from "./components/TheWelcome.vue";
+import Todo from "./components/Todo.vue";
 </script>
 
 <template>
@@ -10,7 +9,9 @@ import TheWelcome from "./components/TheWelcome.vue";
     </h1>
   </header>
 
-  <main class="bg-white shadow-2xl text-lg">APP HERE</main>
+  <main class="bg-white shadow-2xl text-lg">
+    <Todo />
+  </main>
 
   <footer class="mt-8 mb-4 text-xs font-thin text-gray-400 text-center">
     View on
@@ -18,4 +19,5 @@ import TheWelcome from "./components/TheWelcome.vue";
   </footer>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>
