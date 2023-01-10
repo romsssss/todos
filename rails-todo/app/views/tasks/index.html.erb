@@ -1,17 +1,11 @@
-<h1 class="my-4 text-6xl font-sans font-thin text-gray-400 text-center">
-  <%= t('title') %>
-</h1>
-
 <%= turbo_frame_tag "tasks-container" do %>
-  <div class="bg-white shadow-2xl text-lg">
-    <%= render "form", task: @task %>
+  <%= render "form", task: @task %>
 
-    <% unless @tasks.empty? && !params[:filter] %>
-      <ul id="tasks">
-        <%= render @tasks %>
-      </ul>
+  <% unless @tasks.empty? && !params[:filter] %>
+    <ul id="tasks">
+      <%= render @tasks %>
+    </ul>
 
-      <%= render "footer", active_tasks_count: @active_tasks_count, filter: params[:filter] %>
-    <% end %>
-  </div>
+    <%= render "footer", active_tasks_count: @active_tasks_count, filter: params[:filter] %>
+  <% end %>
 <% end %>

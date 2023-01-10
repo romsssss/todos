@@ -11,11 +11,21 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-gray-100">
-    <main class="flex flex-row justify-center">
-      <div class="basis-full sm:basis-5/6 md:basis-4/6 lg:basis-3/6 xl:basis-2/6">
+  <body class="bg-gray-100 flex flex-row justify-center">
+    <div class="basis-full sm:basis-5/6 md:basis-4/6 lg:basis-3/6 xl:basis-2/6">
+      <header>
+        <h1 class="my-4 text-6xl font-sans font-thin text-gray-400 text-center">
+          <%= t('title') %>
+        </h1>
+      </header>
+
+      <main class="bg-white shadow-2xl text-lg">
         <%= yield %>
-      </div>
-    </main>
+      </main>
+
+      <footer class="mt-8 mb-4 text-xs font-thin text-gray-400 text-center">
+        View on <a href="https://github.com/romsssss/todos/tree/main/rails-todo">Github</a>
+      </footer>
+    </div>
   </body>
 </html>
