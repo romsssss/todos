@@ -18,6 +18,7 @@ export default {
       <label class="sr-only" for="task_title">Title</label>
       <input
         ref="input"
+        name="new-task"
         required="true"
         placeholder="What needs to be done?"
         autocomplete="off"

@@ -16,7 +16,7 @@ export default {
         )
         .sort((a, b) => {
           return b.id - a.id;
-      });
+        });
     },
   },
   components: {
@@ -26,8 +26,10 @@ export default {
 </script>
 
 <template>
-  <ul v-for="task in curatedTasksList" :key="task.id">
+  <ul id="tasks-list">
     <Task
+      v-for="task in curatedTasksList"
+      :key="task.id"
       :task="task"
       @activate="(id) => store.activateTask(id)"
       @complete="(id) => store.completeTask(id)"

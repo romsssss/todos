@@ -15,13 +15,16 @@ export default {
   methods: {
     filterBy(filter) {
       store.filter = filter;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <template>
-  <div class="flex justify-around items-center text-xs text-gray-400 py-3">
+  <div
+    id="tasks-footer"
+    class="flex justify-around items-center text-xs text-gray-400 py-3"
+  >
     <div>{{ numberOfOpenTasks }} items left</div>
     <div>
       <a
