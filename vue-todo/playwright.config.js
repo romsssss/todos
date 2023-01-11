@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // @ts-check
 const { devices } = require("@playwright/test");
 

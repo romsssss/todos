@@ -1,6 +1,6 @@
 <script>
 import { store } from "../store.js";
-import Task from "./Task.vue";
+import TaskItem from "./TaskItem.vue";
 
 export default {
   data() {
@@ -20,14 +20,14 @@ export default {
     },
   },
   components: {
-    Task,
+    TaskItem,
   },
 };
 </script>
 
 <template>
   <ul id="tasks-list">
-    <Task
+    <TaskItem
       v-for="task in curatedTasksList"
       :key="task.id"
       :task="task"

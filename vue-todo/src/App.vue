@@ -1,9 +1,9 @@
 <script>
-import Todo from "./components/Todo.vue";
+import TodoApp from "./components/TodoApp.vue";
 
 export default {
   components: {
-    Todo,
+    TodoApp,
   },
 };
 </script>
@@ -16,7 +16,7 @@ export default {
   </header>
 
   <main class="bg-white shadow-2xl text-lg">
-    <Todo />
+    <TodoApp />
   </main>
 
   <footer class="mt-8 mb-4 text-xs font-thin text-gray-400 text-center">
