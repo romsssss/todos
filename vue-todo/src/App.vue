@@ -1,5 +1,11 @@
-<script setup>
+<script>
 import Todo from "./components/Todo.vue";
+
+export default {
+  components: {
+    Todo,
+  },
+};
 </script>
 
 <template>
@@ -18,6 +24,3 @@ import Todo from "./components/Todo.vue";
     <a href="https://github.com/romsssss/todos/tree/main/vue-todo">Github</a>
   </footer>
 </template>
-
-<style scoped>
-</style>

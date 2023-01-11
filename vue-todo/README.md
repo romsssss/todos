@@ -1,14 +1,8 @@
-# vue-todo
+# Vue-Todo
 
-This template should help get you started developing with Vue 3 in Vite.
+A simple Todo app written with Vue.js
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+![Alt text](src/assets/images/app-screenshot.png?raw=true "Application Screenshot")
 
 ## Project Setup
 
@@ -16,26 +10,28 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+## Run the project
 
+Compile and Hot-Reload for Development
 ```sh
 npm run dev
 ```
+The project is then available at http://127.0.0.1:5173/
 
-### Compile and Minify for Production
 
+Compile and Minify for Production
 ```sh
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+## Run tests
 
+Run Unit Tests with [Vitest](https://vitest.dev/)
 ```sh
 npm run test:unit
 ```
 
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
-
+Run End-to-End Tests with [Playwright](https://playwright.dev)
 ```sh
 # Install browsers for the first run
 npx playwright install
@@ -53,7 +49,7 @@ npm run test:e2e -- tests/example.spec.ts
 npm run test:e2e -- --debug
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## Lint with [ESLint](https://eslint.org/)
 
 ```sh
 npm run lint
