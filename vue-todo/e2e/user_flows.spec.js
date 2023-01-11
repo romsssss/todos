@@ -12,7 +12,7 @@ test("creates a new task", async ({ page }) => {
   await page.keyboard.press("Enter");
 
   await expect(page.locator("#tasks-list")).toContainText("Buy more flour");
-  await expect(page.locator("#tasks-footer")).toContainText("1 items left");
+  await expect(page.locator("#tasks-footer")).toContainText("1 item left");
 });
 
 test("complete a task", async ({ page }) => {
@@ -22,11 +22,11 @@ test("complete a task", async ({ page }) => {
   await expect(page.locator("#tasks-list")).toContainText(
     "My task to complete"
   );
-  await expect(page.locator("#tasks-footer")).toContainText("1 items left");
+  await expect(page.locator("#tasks-footer")).toContainText("1 item left");
 
   await page.getByRole("checkbox").first().check();
 
-  await expect(page.locator("#tasks-footer")).toContainText("0 items left");
+  await expect(page.locator("#tasks-footer")).toContainText("0 item left");
 });
 
 test("uncomplete a task", async ({ page }) => {
@@ -37,10 +37,10 @@ test("uncomplete a task", async ({ page }) => {
   await expect(page.locator("#tasks-list")).toContainText(
     "My task to uncomplete"
   );
-  await expect(page.locator("#tasks-footer")).toContainText("0 items left");
+  await expect(page.locator("#tasks-footer")).toContainText("0 item left");
 
   await page.getByRole("checkbox").first().uncheck();
-  await expect(page.locator("#tasks-footer")).toContainText("1 items left");
+  await expect(page.locator("#tasks-footer")).toContainText("1 item left");
 });
 
 test("destroy a task", async ({ page }) => {
@@ -58,7 +58,7 @@ test("destroy a task", async ({ page }) => {
   await expect(page.locator("#tasks-list")).not.toContainText(
     "My task to destroy"
   );
-  await expect(page.locator("#tasks-footer")).toContainText("1 items left");
+  await expect(page.locator("#tasks-footer")).toContainText("1 item left");
 });
 
 test("filter tasks", async ({ page }) => {
