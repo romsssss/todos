@@ -13,8 +13,8 @@ export default defineConfig({
   },
   test: {
     coverage: {
-      provider: 'c8',
-      reporter: ['text', 'json', 'html'],
+      provider: "c8",
+      reporter: ["text", "json", "html"],
     },
   },
 });

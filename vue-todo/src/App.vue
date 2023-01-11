@@ -11,7 +11,7 @@ export default {
 <template>
   <header>
     <h1 class="my-4 text-6xl font-sans font-thin text-gray-400 text-center">
-      TODO
+      {{ $t("title") }}
     </h1>
   </header>
 
@@ -20,7 +20,12 @@ export default {
   </main>
 
   <footer class="mt-8 mb-4 text-xs font-thin text-gray-400 text-center">
-    View on
-    <a href="https://github.com/romsssss/todos/tree/main/vue-todo">Github</a>
+    <i18n-t keypath="github.view_on">
+      <a
+        href="https://github.com/romsssss/todos/tree/main/vue-todo"
+        target="_blank"
+        >{{ $t("github.label") }}</a
+      >
+    </i18n-t>
   </footer>
 </template>

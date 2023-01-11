@@ -15,12 +15,12 @@ export default {
 <template>
   <form class="border-b-2" action="#" @submit.prevent>
     <div class="flex items-stretch flex-grow">
-      <label class="sr-only" for="task_title">Title</label>
+      <label class="sr-only" for="task_title">{{ $t("new_task.title") }}</label>
       <input
         ref="input"
         name="new-task"
         required="true"
-        placeholder="What needs to be done?"
+        :placeholder="$t('new_task.placeholder')"
         autocomplete="off"
         autofocus="true"
         class="block w-full border-none focus:ring-0 focus:ring-offset-0 p-4"
