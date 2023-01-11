@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import { createI18n } from "vue-i18n";
-import en from "./locales/en.js";
+import en from "./locales/en.json";
 import App from "./App.vue";
 
 import "./assets/main.css";
@@ -8,7 +8,7 @@ import "./assets/main.css";
 const i18n = createI18n({
   locale: "en",
   messages: {
-    en: en,
+    en,
   },
 });
 

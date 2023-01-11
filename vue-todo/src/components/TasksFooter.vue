@@ -17,7 +17,7 @@ const filterBy = (filter) => {
     class="flex justify-around items-center text-xs text-gray-400 py-3"
   >
     <div>
-      {{ $tc("remaining_active_tasks", numberOfOpenTasks) }}
+      {{ $t("remaining_active_tasks", numberOfOpenTasks) }}
     </div>
     <div>
       <a
