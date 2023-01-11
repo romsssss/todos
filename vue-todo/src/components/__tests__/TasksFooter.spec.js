@@ -5,7 +5,7 @@ import TasksFooter from "../TasksFooter.vue";
 
 describe("TasksFooter", () => {
   it("renders properly", () => {
-    const wrapper = mount(TasksFooter, { });
-    expect(wrapper.text()).toContain("X items left");
+    const wrapper = mount(TasksFooter, {});
+    expect(wrapper.text()).toContain("0 items left");
   });
 });
