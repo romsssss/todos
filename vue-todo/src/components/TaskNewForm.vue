@@ -1,21 +1,22 @@
-<script>
-export default {
-  emits: ["create"],
-  methods: {
-    submit(event) {
-      if (event.target.value) {
-        this.$emit("create", event.target.value);
-        this.$refs.input.value = null;
-      }
-    },
-  },
+<script setup>
+import { ref } from "vue";
+
+const emit = defineEmits(["create"]);
+
+const input = ref(null);
+
+const submit = (event) => {
+  if (event.target.value) {
+    emit("create", event.target.value);
+    input.value.value = null;
+  }
 };
 </script>
 
 <template>
   <form class="border-b-2" action="#" @submit.prevent>
     <div class="flex items-stretch flex-grow">
-      <label class="sr-only" for="task_title">{{ $t("new_task.title") }}</label>
+      <label class="sr-only" for="task_title">{{ $t("new_task.label") }}</label>
       <input
         ref="input"
         name="new-task"

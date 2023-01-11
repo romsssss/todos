@@ -6,7 +6,7 @@ import TaskItem from "../TaskItem.vue";
 describe("TaskItem", () => {
   it("renders properly", () => {
     const wrapper = mount(TaskItem, {
-      props:{
+      props: {
         task: {
           id: 1,
           title: "My first task !",

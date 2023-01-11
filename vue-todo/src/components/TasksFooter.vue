@@ -1,22 +1,13 @@
-<script>
+<script setup>
+import { computed } from "vue";
 import { store } from "../store.js";
 
-export default {
-  data() {
-    return {
-      store,
-    };
-  },
-  computed: {
-    numberOfOpenTasks() {
-      return store.tasks.filter((task) => task.status === "active").length;
-    },
-  },
-  methods: {
-    filterBy(filter) {
-      store.filter = filter;
-    },
-  },
+const numberOfOpenTasks = computed(() => {
+  return store.tasks.filter((task) => task.status === "active").length;
+});
+
+const filterBy = (filter) => {
+  store.filter = filter;
 };
 </script>
 

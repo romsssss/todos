@@ -1,25 +1,27 @@
-<script>
-export default {
-  props: ["task"],
-  emits: ["activate", "complete", "delete"],
-  computed: {
-    isCompleted() {
-      return this.task.status == "completed";
-    },
-    classObject() {
-      return {
-        "line-through": this.isCompleted,
-        "text-gray-400": this.isCompleted,
-      };
-    },
-  },
-  methods: {
-    updateStatus(event) {
-      event.target.checked
-        ? this.$emit("complete", this.task.id)
-        : this.$emit("activate", this.task.id);
-    },
-  },
+<script setup>
+import { computed } from "vue";
+
+const props = defineProps({
+  task: Object,
+});
+
+const emit = defineEmits(["activate", "complete", "delete"]);
+
+const isCompleted = computed(() => {
+  return props.task.status == "completed";
+});
+
+const classObject = computed(() => {
+  return {
+    "line-through": isCompleted.value,
+    "text-gray-400": isCompleted.value,
+  };
+});
+
+const updateStatus = (event) => {
+  event.target.checked
+    ? emit("complete", props.task.id)
+    : emit("activate", props.task.id);
 };
 </script>
 
