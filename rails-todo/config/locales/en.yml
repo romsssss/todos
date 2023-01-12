@@ -34,7 +34,7 @@ en:
   new_task_placeholder: "What needs to be done?"
   remaining_active_tasks:
     zero: '0 item left'
-    one: '1  item left'
+    one: '1 item left'
     other: '%{count} items left'
   filter:
     all: 'All'
