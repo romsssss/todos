@@ -1,20 +1,29 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, vi, expect } from "vitest";
 
 import { mount } from "@vue/test-utils";
+import { createTestingPinia } from "@pinia/testing";
 import TasksFooter from "../TasksFooter.vue";
 import { createI18n } from "vue-i18n";
-import en from "../../locales/en.json";
+import messages from "@intlify/unplugin-vue-i18n/messages";
 
 describe("TasksFooter", () => {
   it("renders properly", () => {
     const i18n = createI18n({
-      local: "en",
-      messages: {
-        en,
+      locale: "en",
+      messages,
+    });
+
+    const wrapper = mount(TasksFooter, {
+      global: {
+        plugins: [
+          i18n,
+          createTestingPinia({
+            createSpy: vi.fn,
+          }),
+        ],
       },
     });
 
-    const wrapper = mount(TasksFooter, { global: { plugins: [i18n] } });
-    expect(wrapper.text()).toContain("item left");
+    expect(wrapper.text()).toContain("1 item left");
   });
 });

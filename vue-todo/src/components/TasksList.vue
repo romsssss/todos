@@ -1,23 +1,14 @@
 <script setup>
-import { computed } from "vue";
-import { store } from "../store.js";
+import { todoStore } from "@/stores/todo";
 import TaskItem from "./TaskItem.vue";
 
-const curatedTasksList = computed(() => {
-  return store.tasks
-    .filter((task) =>
-      store.filter === "all" ? true : task.status === store.filter
-    )
-    .sort((a, b) => {
-      return b.id - a.id;
-    });
-});
+const store = todoStore();
 </script>
 
 <template>
   <ul id="tasks-list">
     <TaskItem
-      v-for="task in curatedTasksList"
+      v-for="task in store.curatedTasksList"
       :key="task.id"
       :task="task"
       @activate="(id) => store.activateTask(id)"

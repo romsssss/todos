@@ -1,14 +1,7 @@
 <script setup>
-import { computed } from "vue";
-import { store } from "../store.js";
+import { todoStore } from "@/stores/todo";
 
-const numberOfOpenTasks = computed(() => {
-  return store.tasks.filter((task) => task.status === "active").length;
-});
-
-const filterBy = (filter) => {
-  store.filter = filter;
-};
+const store = todoStore();
 </script>
 
 <template>
@@ -17,25 +10,25 @@ const filterBy = (filter) => {
     class="flex justify-around items-center text-xs text-gray-400 py-3"
   >
     <div>
-      {{ $t("remaining_active_tasks", numberOfOpenTasks) }}
+      {{ $t("remaining_active_tasks", store.openTasks.length) }}
     </div>
     <div>
       <a
-        @click="filterBy('all')"
+        @click="store.setFilter('all')"
         :class="{ border: store.filter === 'all' }"
         class="hover:border rounded p-1"
         href="#"
         >{{ $t("filter.all") }}</a
       >
       <a
-        @click="filterBy('active')"
+        @click="store.setFilter('active')"
         :class="{ border: store.filter === 'active' }"
         class="hover:border rounded p-1"
         href="#"
         >{{ $t("filter.active") }}</a
       >
       <a
-        @click="filterBy('completed')"
+        @click="store.setFilter('completed')"
         :class="{ border: store.filter === 'completed' }"
         class="hover:border rounded p-1"
         href="#"
