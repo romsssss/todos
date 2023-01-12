@@ -9,11 +9,11 @@ describe("TaskItem", () => {
       props: {
         task: {
           id: 1,
-          title: "My first task !",
+          title: "My first task",
           status: "active",
         },
       },
     });
-    expect(wrapper.text()).toContain("My first task !");
+    expect(wrapper.text()).toContain("My first task");
   });
 });
