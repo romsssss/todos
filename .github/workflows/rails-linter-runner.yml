@@ -1,0 +1,33 @@
+name: "(rails-todo) Linter runner"
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'rails-todo/**'
+    branches:
+      - main
+  pull_request:
+      paths:
+      - 'rails-todo/**'
+
+defaults:
+  run:
+    working-directory: rails-todo
+
+jobs:
+  lint:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@ee2113536afb7f793eed4ce60e8d3b26db912da4
+        with:
+          ruby-version: '3.1.2'
+          bundler-cache: true
+      - name: Install dependencies
+        run: bundle install
+      - name: Lint code
+        run: rubocop ./
