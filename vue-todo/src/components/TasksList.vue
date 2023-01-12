@@ -1,28 +1,17 @@
-<script>
+<script setup>
+import { computed } from "vue";
 import { store } from "../store.js";
 import TaskItem from "./TaskItem.vue";
 
-export default {
-  data() {
-    return {
-      store,
-    };
-  },
-  computed: {
-    curatedTasksList() {
-      return store.tasks
-        .filter((task) =>
-          store.filter === "all" ? true : task.status === store.filter
-        )
-        .sort((a, b) => {
-          return b.id - a.id;
-        });
-    },
-  },
-  components: {
-    TaskItem,
-  },
-};
+const curatedTasksList = computed(() => {
+  return store.tasks
+    .filter((task) =>
+      store.filter === "all" ? true : task.status === store.filter
+    )
+    .sort((a, b) => {
+      return b.id - a.id;
+    });
+});
 </script>
 
 <template>
