@@ -29,7 +29,5 @@ jobs:
           bundler-cache: true
       - name: Install dependencies
         run: bundle install
-      - name: Prepare tests
-        run: bin/rails test:prepare # will trigger tailwindcss:build task (needed in some tests)
       - name: Run tests
         run: bin/rails test:system HEADLESS_CHROME=true
