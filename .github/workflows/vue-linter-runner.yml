@@ -1,4 +1,4 @@
-name: "(vue-todo) Linter runner"
+name: "(vue-todo) Linter"
 
 on:
   workflow_dispatch:

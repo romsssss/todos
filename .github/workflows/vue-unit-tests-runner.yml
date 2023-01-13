@@ -1,4 +1,4 @@
-name: "(vue-todo) Unit tests runner"
+name: "(vue-todo) Unit tests"
 
 on:
   workflow_dispatch:
