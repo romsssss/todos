@@ -1,4 +1,4 @@
-name: "(rails-todo) E2E tests runner"
+name: "(rails-todo) E2E tests"
 
 on:
   workflow_dispatch:

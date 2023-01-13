@@ -1,4 +1,4 @@
-name: "(rails-todo) Unit tests runner"
+name: "(rails-todo) Unit tests"
 
 on:
   workflow_dispatch:

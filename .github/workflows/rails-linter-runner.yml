@@ -1,4 +1,4 @@
-name: "(rails-todo) Linter runner"
+name: "(rails-todo) Linter"
 
 on:
   workflow_dispatch:
