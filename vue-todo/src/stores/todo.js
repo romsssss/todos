@@ -1,10 +1,11 @@
 import { defineStore } from "pinia";
+import { useStorage } from "@vueuse/core";
 
 export const todoStore = defineStore("todo", {
   state: () => {
     return {
-      tasks: [],
-      filter: "all",
+      tasks: useStorage("vue-todo-tasks", []),
+      filter: useStorage("vue-todo-filter", "all"),
     };
   },
   getters: {
