@@ -21,7 +21,7 @@ export const todoStore = defineStore("todo", {
     openTasks(state) {
       return state.tasks.filter((task) => task.status === "active");
     },
-  },s
+  },
   actions: {
     setFilter(filter) {
       this.filter = filter;
