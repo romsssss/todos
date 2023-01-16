@@ -4,6 +4,7 @@ import { todoStore } from "../todo";
 
 describe("Todo Store", () => {
   beforeEach(() => {
+    localStorage.clear();
     setActivePinia(createPinia());
   });
 
