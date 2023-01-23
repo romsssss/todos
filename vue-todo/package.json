@@ -23,7 +23,7 @@
     "@vitest/coverage-c8": "^0.27.1",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/test-utils": "^2.2.6",
-    "@vueuse/core": "^9.10.0",
+    "@vueuse/core": "^9.11.1",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.32.0",
     "eslint-plugin-vue": "^9.9.0",
