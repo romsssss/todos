@@ -10,5 +10,5 @@ const store = todoStore();
 <template>
   <TaskNewForm @create="(title) => store.createTask(title)" />
   <TasksList />
-  <TasksFooter v-if="true || store.tasks.length > 0" />
+  <TasksFooter v-if="store.tasks.length > 0" />
 </template>
