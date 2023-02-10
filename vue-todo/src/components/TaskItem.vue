@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from "vue";
 
 const props = defineProps({
@@ -8,7 +8,7 @@ const props = defineProps({
 const emit = defineEmits(["activate", "complete", "delete"]);
 
 const isCompleted = computed(() => {
-  return props.task.status == "completed";
+  return props.task?.status == "completed";
 });
 
 const classObject = computed(() => {
@@ -18,10 +18,11 @@ const classObject = computed(() => {
   };
 });
 
-const updateStatus = (event) => {
-  event.target.checked
-    ? emit("complete", props.task.id)
-    : emit("activate", props.task.id);
+const updateStatus = (event: Event) => {
+  const target = event.target as HTMLInputElement;
+  target?.checked
+    ? emit("complete", props.task?.id)
+    : emit("activate", props.task?.id);
 };
 </script>
 
@@ -37,11 +38,11 @@ const updateStatus = (event) => {
         />
       </form>
       <div :class="classObject">
-        {{ task.title }}
+        {{ task?.title }}
       </div>
     </div>
     <button
-      @click="$emit('delete', task.id)"
+      @click="$emit('delete', task?.id)"
       class="text-gray-400 destroy-task-button"
     >
       X

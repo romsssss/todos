@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { todoStore } from "@/stores/todo";
 
 const store = todoStore();

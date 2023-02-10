@@ -1,14 +1,19 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 
 const emit = defineEmits(["create"]);
 
 const input = ref(null);
 
-const submit = (event) => {
-  if (event.target.value) {
-    emit("create", event.target.value);
-    input.value.value = null;
+const submit = (event: Event) => {
+  const target = event.target as HTMLTextAreaElement;
+
+  if (target?.value) {
+    emit("create", target?.value);
+    if (input.value) {
+      // @ts-ignore
+      input.value.value = null;
+    }
   }
 };
 </script>
@@ -20,7 +25,6 @@ const submit = (event) => {
       <input
         ref="input"
         name="new-task"
-        required="true"
         :placeholder="$t('new_task.placeholder')"
         autocomplete="off"
         autofocus="true"

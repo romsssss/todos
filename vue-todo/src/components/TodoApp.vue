@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { todoStore } from "@/stores/todo";
 import TaskNewForm from "./TaskNewForm.vue";
 import TasksList from "./TasksList.vue";
@@ -8,7 +8,7 @@ const store = todoStore();
 </script>
 
 <template>
-  <TaskNewForm @create="(title) => store.createTask(title)" />
+  <TaskNewForm @create="(title: string) => store.createTask(title)" />
   <TasksList />
-  <TasksFooter v-if="true || store.tasks.length > 0" />
+  <TasksFooter v-if="store.tasks.length > 0" />
 </template>
